@@ -62,4 +62,13 @@ public class Cine {
 
         }
     }
+
+    public boolean reservarSala(Sala sala, int fila, int columna) {
+        return sala.reservarButaca(fila, columna);
+
+    }
+
+    public void mostrarButacas(Sala sala) {
+        sala.mostrarEstadoButacas();
+    }
 }
