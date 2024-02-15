@@ -1,4 +1,7 @@
 public class Pelicula {
+    /**
+     * la clase pelicula tendra dos atributo: titulo y duracion, el contructor y los get/set
+     */
     private String titulo;
     private int duracion;
 
