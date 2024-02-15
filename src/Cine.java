@@ -42,4 +42,24 @@ public class Cine {
     public void setCantidadSalas(int cantidadSalas) {
         this.cantidadSalas = cantidadSalas;
     }
+
+    public void agregarSala(Sala sala) {
+        if (sala.getNumero() >= 1 && sala.getNumero() <= cantidadSalas) {
+            salas[sala.getNumero() - 1] = sala;
+        } else {
+            System.out.println("El numero de salas esta fuera de rango.");
+        }
+    }
+
+    public void mostrarInformacionSalas() {
+        System.out.println("Informacion de las salas:");
+        for (int i = 0; i < salas.length; i++) {
+            if (salas[i] != null) {
+                System.out.println("Sala " + salas[i].getNumero() + ": " + salas[i].getPelicula().getTitulo());
+            } else {
+                System.out.println("Sala " + (i + 1) + ": No hay informacion disponible");
+            }
+
+        }
+    }
 }
