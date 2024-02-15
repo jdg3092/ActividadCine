@@ -33,4 +33,35 @@ public class Sala {
     public void setButacas(boolean[][] butacas) {
         this.butacas = butacas;
     }
+
+    public boolean reservarButaca(int fila, int columna) {
+        if (fila < 0 || fila >= butacas.length || columna < 0 || columna >= butacas[0].length) {
+            System.out.println("Error! No existe Butaca ");
+            return false;
+        }
+        if (butacas[fila][columna]) {
+            System.out.println("La butaca esta ocupada.");
+            return false;
+        }
+
+        butacas[fila][columna] = true;
+        return true;
+    }
+
+    public void mostrarEstadoButacas() {
+        System.out.println("Estado de las butacas en la sala " + numero + ":");
+        System.out.println("-----------------------------------------");
+        for (int i = 1; i < butacas.length; i++) {
+            for (int j = 1; j < butacas[i].length; j++) {
+                if (butacas[i][j]) {
+                    System.out.print(" X"); // Butaca ocupada
+                } else {
+                    System.out.print(" O"); // Butaca libre
+                }
+
+            }
+            System.out.println();
+
+        }
+    }
 }
