@@ -23,6 +23,74 @@ public class GestionComprasEntradas {
         cine.agregarSala(sala4);
         cine.agregarSala(sala5);
 
+        boolean seguir = true;
+        while (seguir == true) {
+            System.out.println("Bienvenido al Cine Renoir");
+            System.out.println("1. Ver la informacion de las peliculas emitidas");
+            System.out.println("2. Reservar entrada");
+            System.out.println("3. Salir");
+
+            System.out.print("Seleccione una opcion: ");
+            int opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    cine.mostrarInformacionSalas();
+                    break;
+                case 2:
+                    boolean comprobacion = false;
+                    System.out.print("Selecciona la sala a la que quieres acceder (1. Sala 1, 2. Sala 2, 3. Sala 3, 4. Sala 4, 5. Sala 5): ");
+                    while (!comprobacion) {
+                        int seleccionSala = sc.nextInt();
+                        System.out.print("Selecciona la fila (1-10): ");
+                        int fila = sc.nextInt();
+                        System.out.print("Selecciona la columna (1-20): ");
+                        int columna = sc.nextInt();
+                        System.out.print("Ingrese su email --> ejemplo: hello@gmail.com: ");
+                        String email = sc.next();
+                        switch (seleccionSala) {
+                            case 1:
+                                comprobacion = cine.reservarSala(sala1, fila, columna);
+                                System.out.println("\nReserva de: " + email + " (Fila:" + fila + " | Columna:" + columna + ")");
+                                cine.mostrarButacas(sala1);
+                                break;
+                            case 2:
+                                comprobacion = cine.reservarSala(sala2, fila, columna);
+                                System.out.println("\nReserva de: " + email + " (Fila:" + fila + " | Columna:" + columna + ")");
+                                cine.mostrarButacas(sala2);
+                                break;
+                            case 3:
+                                comprobacion = cine.reservarSala(sala3, fila, columna);
+                                System.out.println("\nReserva de: " + email + " (Fila:" + fila + " | Columna:" + columna + ")");
+                                cine.mostrarButacas(sala3);
+                                break;
+                            case 4:
+                                comprobacion = cine.reservarSala(sala4, fila, columna);
+                                System.out.println("\nReserva de: " + email + " (Fila:" + fila + " | Columna:" + columna + ")");
+                                cine.mostrarButacas(sala4);
+                                break;
+                            case 5:
+                                comprobacion = cine.reservarSala(sala5, fila, columna);
+                                System.out.println("\nReserva de: " + email + " (Fila:" + fila + " | Columna:" + columna + ")");
+                                cine.mostrarButacas(sala5);
+                                break;
+                        }
+                        if (comprobacion == false) {
+                            System.out.println("\nEscoja de nuevo. (1. Sala 1, 2. Sala 2, 3. Sala 3, 4. Sala 4, 5. Sala 5)");
+                        }
+                    }
+
+                    break;
+                case 3:
+                    System.out.println("Saliendo de la aplicacion. Hasta luego");
+                    seguir = false;
+                    break;
+                default:
+                    System.out.println("Opcion no valida. Por favor, seleccione otra opcion");
+            }
+
+        }
+
 
     }
 }
