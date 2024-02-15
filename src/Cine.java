@@ -4,6 +4,12 @@ public class Cine {
     private Sala[] salas;
     private int cantidadSalas;
 
+    /**
+     * Constructor para crear en el main el cine
+     * @param nombre el nombre del cine
+     * @param aforo el aforo que tiene
+     * @param cantidadSalas y la cantidad de salas que puede tener
+     */
     public Cine(String nombre, int aforo, int cantidadSalas) {
         this.nombre = nombre;
         this.aforo = aforo;
@@ -43,6 +49,10 @@ public class Cine {
         this.cantidadSalas = cantidadSalas;
     }
 
+    /**
+     * Metodo para poder agregar las salas
+     * @param sala la clase Sala que se agregara
+     */
     public void agregarSala(Sala sala) {
         if (sala.getNumero() >= 1 && sala.getNumero() <= cantidadSalas) {
             salas[sala.getNumero() - 1] = sala;
@@ -51,6 +61,9 @@ public class Cine {
         }
     }
 
+    /**
+     * Metodo para mostrar el array de as salas donde saldra el numero de sala y la pelicula que tiene dicha sala
+     */
     public void mostrarInformacionSalas() {
         System.out.println("Informacion de las salas:");
         for (int i = 0; i < salas.length; i++) {
@@ -63,11 +76,22 @@ public class Cine {
         }
     }
 
+    /**
+     * Metodo que recupera el metodo de otra clase
+     * @param sala se selecciona la sala
+     * @param fila se seleciona la fila
+     * @param columna se selecciona la columna
+     * @return el metodo para reservar butacas que esta dentro de clase Sala
+     */
     public boolean reservarSala(Sala sala, int fila, int columna) {
         return sala.reservarButaca(fila, columna);
 
     }
 
+    /**
+     * Metodo para recuperar metodo de mostrame la matriz que muestra las butacas
+     * @param sala se selecciona la sala
+     */
     public void mostrarButacas(Sala sala) {
         sala.mostrarEstadoButacas();
     }
