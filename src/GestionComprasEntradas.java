@@ -17,5 +17,12 @@ public class GestionComprasEntradas {
         Sala sala4 = new Sala(4, pelicula4, 10, 20);
         Sala sala5 = new Sala(5, pelicula5, 10, 20);
 
+        cine.agregarSala(sala1);
+        cine.agregarSala(sala2);
+        cine.agregarSala(sala3);
+        cine.agregarSala(sala4);
+        cine.agregarSala(sala5);
+
+
     }
 }
